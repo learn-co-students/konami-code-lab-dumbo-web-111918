@@ -10,7 +10,16 @@ const codes = [
   "b",
   "a"
 ];
+const pressedArray = [];
 
 function init() {
-  // your code here
+  document.body.addEventListener("keydown", (event) => {
+
+    pressedArray.splice(-codes.length, pressedArray.length - codes.length);
+
+    pressedArray.push(event.key);
+    if(pressedArray.join('') === codes.join('')){
+      alert("You've uncovered the Hidden Temple!");
+    }
+  });
 }
